@@ -14,7 +14,17 @@ found = [z.split()[0] for z in info]
 najit = input("Zadat IP adresu: ").strip()
 
 
+
+
+
 for x in range(len(found)):
+    try:
+        IPNetwork(najit) == True
+
+    except:
+        print("Není IP adresa nebo rozsah.")
+        break
+    
     if IPNetwork(najit) in IPNetwork(found[x]):        
         for y in range(len(info)):
             if found[x] in info[y]:
@@ -38,4 +48,12 @@ for x in range(len(found)):
         break
 else:
     print("Není blacklisted.")
+
+
+
+
+
+
+
+
 
